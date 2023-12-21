@@ -31,11 +31,13 @@ this code into a file and run it with the data from your user profile:
 <?php
 $data = 'a:1:{....'; // Copy your data into this variable.
 $profile = unserialize($data);
-$queries = json_decode($profile['queries'], true);
+$queries = $profile['queries_store']['data'];
 foreach ($queries as $name => $query) {
     echo $name, ":\n";
     echo $query['config'], "\n\n";
 }
+?>
+
 ```
 
 This will output the JSON for each chart saved for the user the data was
